@@ -1,20 +1,30 @@
 body {
-  padding-top: 90px;
+  padding-top: 80px;
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   line-height: 1.7em;
+  background-color: #f9f9f9;
+}
+
+a, a:hover, a:focus {
+  color: #C00;
+  background-color: transparent;
+}
+a:focus {
+  outline: 1px dotted #CCC;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Helvetica, sans-serif;
-  color: #555555;
+  color: #777;
   font-weight: 300;
   margin: 0.67em 0;
 }
 
+/* When scrollingg to anchors, offset the anchor from the page top by X pixels */
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-  margin-top: -60px;
-  padding-top: 90px;
+  margin-top: -90px;
+  padding-top: 120px;
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
@@ -22,53 +32,76 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
   padding-top: 0;
 }
 
-.main {
-  padding-bottom: 15px;
-}
-
-.content > hr {
-  margin: 20px 0;
-}
+/*-------------------------------
+  MAIN MENU
+-------------------------------*/
 
 .navbar-default {
-  background-color: hsla(190, 50%, 90%, 1);
-  border-color: hsla(190, 25%, 80%, 1);
+  background-color: #FFF;
+  border-color: rgba(0,0,0,0.1);
+  outline: 1px solid rgba(0,0,0,0.05);
+  padding: 15px 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+  text-transform: uppercase;
+  color: #BBB;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.navbar-default .navbar-nav > li.active > a {
+  color: #000;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-  background-color: hsla(190, 50%, 95%, 1);
-  padding: 10px;
-  line-height: 20px;
-  margin: 3px;
-  border: 2px solid hsla(190, 25%, 80%, 1);
-  border-radius: 4px;
+  background-color: transparent;
 }
 
 .navbar-toggle {
-  border-color: hsla(190, 25%, 80%, 1) !important;
+  /*border-color: #DDD !important;*/
 }
 
 .navbar-toggle:hover,
 .navbar-toggle:focus
 {
-  background-color: hsla(190, 50%, 95%, 1) !important;
+  background-color: #F8F8F8 !important;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-  border-color: hsla(190, 25%, 80%, 1);
+  border-color: #FFF;
 }
 
 .navbar-brand {
-  margin-right: 15px;
+  padding-right: 0;
+  padding-left: 0;
 }
 
+.navbar-brand span {
+  font-size: 23px;
+  color: #000 !important;
+  font-weight: 300;
+}
+
+.navbar-brand i {
+  margin-right: 10px;
+  font-size: 23px;
+}
+
+/*-------------------------------
+  SIDE BAR
+-------------------------------*/
+
 .sidebar-nav {
-  margin: 0 0 30px;
+  margin: 38px 0 30px;
   line-height: 1.4em;
 }
 
 .sidebar-nav h4 {
-  margin: 17px 0 12px;
+  margin: 17px 15px 12px 0;
+  cursor: default;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #DDD;
 }
 
 .sidebar-nav ul {
@@ -76,8 +109,36 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
 }
 
 .sidebar-nav li > a {
-  padding: 1px 15px;
+  padding: 2px 0;
   font-size: 14px;
+}
+
+.sidebar-nav li > a:hover,
+.sidebar-nav li > a:focus,
+.sidebar-nav li.active > a
+{
+  color: #C88;
+  background-color: transparent;
+}
+
+.sidebar-nav li.active > a
+{
+  text-decoration: underline;
+}
+
+/*-------------------------------
+  CONTENT AREA
+-------------------------------*/
+
+.page {
+  padding: 40px 30px 90px 30px;
+  background-color: #FFF;
+  border: 1px solid #e7e7e7;
+  text-align: justify;
+}
+
+.content > hr {
+  margin: 20px 0;
 }
 
 pre {
@@ -86,10 +147,43 @@ pre {
   margin: 20px 0;
 }
 
+@media (max-width: 767px) {
+
+  .page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/*-------------------------------
+  FOOTER
+-------------------------------*/
+
+.footer {
+  padding: 30px 0;
+}
+
+/*-------------------------------
+  HOME PAGE
+-------------------------------*/
+
 /* Main marketing message and sign up button */
 .jumbotron {
+  /*background-color: #6A5094;*/
+  /*color: #FFF;*/
   text-align: center;
-  background-color: #FFF;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #DDD;
 }
 
 .jumbotron h1 {
@@ -115,4 +209,8 @@ pre {
 
 .marketing p + h4 {
   margin-top: 28px;
+}
+
+.features {
+  margin-top: 420px;
 }

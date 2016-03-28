@@ -1,6 +1,6 @@
 
   <div class="jumbotron">
-    <h1>Simple Docs</h1>
+    <h1>doc-kit</h1>
 
     <p class="lead">
       Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
@@ -12,7 +12,7 @@
 
   <hr>
 
-  <div class="row-fluid">
+  <div class="features row-fluid">
 
     <div class="col-md-4" markdown="1">
 ## About the project

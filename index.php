@@ -10,7 +10,7 @@ require 'markdown.php'
     $path = dirname ($_SERVER['SCRIPT_NAME']);
     echo $path == '/' ? '' : $path;
     ?>/">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic'
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic'
           rel='stylesheet'
           type='text/css'>
 
@@ -20,6 +20,7 @@ require 'markdown.php'
           crossorigin="anonymous">
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/syntax.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -43,19 +44,19 @@ require 'markdown.php'
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+        <div class="navbar-header col-md-2">
           <button type="button"
                   class="navbar-toggle collapsed"
                   data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-1"
+                  data-target="#navbar-collapsing"
                   aria-expanded="false">
             <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Simple Docs</a>
+          <a class="navbar-brand" href="."><i class="fa fa-pencil"></i><span>doc-kit</span></a>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse col-md-10" id="navbar-collapsing">
           <ul class="nav navbar-nav">
             <li<?= $menuDir == 'index' ? ' class="active"' : '' ?>>
               <a href=".">Home</a>
@@ -111,18 +112,22 @@ require 'markdown.php'
         if ($subPath == '')
           $subPath = 'index';
         $file    = __DIR__ . "/src/docs/$subPath.md";
-        $content = file_exists ($file) ? compileMD (file_get_contents ($file)) : "<code>$path</code> was not found.";
+        $content = file_exists ($file) ? navMenu (compileMD (file_get_contents ($file))) : "<code>$path</code> was not found.";
         ?>
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-2">
             <div class="sidebar-nav">
               <?= navMenu (compileMD (file_get_contents ('src/docs/menu.md', FILE_USE_INCLUDE_PATH))) ?>
             </div>
             <!--/.well -->
           </div>
           <!--/span-->
-          <div class="content col-md-9">
-            <?= $content ?>
+          <div class="page col-md-10">
+            <div class="container-fluid">
+              <div class="content col-md-offset0 col-lg-offset-1 col-md-12 col-lg-10">
+                <?= $content ?>
+              </div>
+            </div>
           </div>
         </div>
         <?php
@@ -132,11 +137,8 @@ require 'markdown.php'
         echo file_exists ($file) ? compileMD (file_get_contents ($file)) : "<code>$path</code> was not found.";
       }
       ?>
-      <hr>
       <div class="footer pull-right">
-        <p>&copy; 2016
-          <a href="#">Someone</a>
-        </p>
+        &copy; 2016 <a href="#">Someone</a>
       </div>
     </div>
     <!-- /container -->
