@@ -1,0 +1,4 @@
+/vendor/*
+composer.lock
+/Unicorn Admin/*
+/.idea/*
